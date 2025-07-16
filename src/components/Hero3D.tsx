@@ -7,8 +7,8 @@ import { Howl, Howler } from "howler";
 import bubblePop from "../assets/sounds/bubble-pop.mp3";
 // @ts-ignore
 import lofi from "../assets/sounds/lofi.mp3";
-// @ts-ignore
-import traceryImport from 'tracery-grammar';
+// @ts-ignore: no types for tracery-grammar
+import tracery from 'tracery-grammar';
 
 // Helper for bubble SVG
 interface BubbleProps {
@@ -48,70 +48,6 @@ function Bubble({ size, left, top, right, bottom, opacity = 0.5, color = '#fff' 
   );
 }
 
-// Tracery grammar for absurd shower thoughts
-const grammar = traceryImport.createGrammar({
-  origin: [
-    "#absurdThought#",
-    "#absurdIdea#",
-    "#absurdQuestion#",
-    "#absurdComparison#"
-  ],
-  absurdThought: [
-    "If you clean a vacuum cleaner, are you the vacuum cleaner?",
-    "If you drop soap on the floor, is the floor clean or the soap dirty?",
-    "If you try to fail and succeed, which have you done?",
-    "If you expect the unexpected, doesn’t the unexpected become expected?",
-    "If you’re waiting for the waiter, aren’t you the waiter?",
-    "If you dig a hole through the earth and jump in, are you falling down or up?",
-    "If you describe something as indescribable, haven’t you already described it?",
-    "If two mind readers read each other’s minds, whose mind are they reading?",
-    "If Cinderella’s shoe fit perfectly, why did it fall off?",
-    "If a word is misspelled in the dictionary, how would we ever know?",
-    "If tomatoes are fruit, is ketchup a smoothie?",
-    "If the number 2 pencil is the most popular, why is it still number 2?",
-    "If you try to fail and succeed, which have you done?",
-    "If you clean a vacuum cleaner, are you the vacuum cleaner?"
-  ],
-  absurdIdea: [
-    "What if #object# could #verb#?",
-    "Imagine a world where #object# is illegal.",
-    "Suppose #object# was actually invented by #animal#.",
-    "What if #object# was sentient and had feelings?",
-    "If #object# could talk, what would it say about #topic#?"
-  ],
-  absurdQuestion: [
-    "Why do we park on driveways and drive on parkways?",
-    "Why isn’t the number 11 pronounced onety-one?",
-    "Why is the word 'abbreviation' so long?",
-    "Why do noses run but feet smell?",
-    "Why do we cook bacon and bake cookies?",
-    "Why do we call it a building if it’s already built?"
-  ],
-  absurdComparison: [
-    "#object# is just #object2# in disguise.",
-    "#object# is basically a #object2# for #animal#.",
-    "#object# is the #adjective# version of #object2#."
-  ],
-  object: [
-    "a potato", "a sock", "a toothbrush", "a cloud", "a banana", "a doorknob", "a towel", "a rubber duck", "a bar of soap", "a shower curtain", "a shampoo bottle", "a loofah"
-  ],
-  object2: [
-    "a pillow", "a marshmallow", "a sponge", "a phone", "a hat", "a slipper", "a pancake", "a jellybean", "a balloon", "a donut"
-  ],
-  animal: [
-    "cats", "dogs", "penguins", "octopuses", "sloths", "llamas", "ducks", "unicorns"
-  ],
-  verb: [
-    "sing", "dance", "fly", "glow in the dark", "do taxes", "dream", "sneeze", "argue", "write poetry"
-  ],
-  topic: [
-    "the weather", "Mondays", "existence", "the meaning of life", "shower thoughts", "the universe", "breakfast"
-  ],
-  adjective: [
-    "squishy", "mysterious", "confused", "sleepy", "existential", "bubbly", "absurd"
-  ]
-});
-grammar.addModifiers(traceryImport.baseEngModifiers);
 
 const ANIMATIONS = [
   'fade-in',
@@ -125,6 +61,117 @@ const ANIMATIONS = [
 function getRandomItem<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
+
+// Tracery grammar for absurd shower thoughts
+const grammar = tracery.createGrammar({
+  origin: [
+    "#absurdThought#",
+    "#absurdIdea#",
+    "#absurdQuestion#",
+    "#absurdComparison#",
+    "#absurdScenario#",
+    "#absurdLaw#",
+    "#absurdFact#"
+  ],
+  absurdThought: [
+    "If you clean a vacuum cleaner, are you the vacuum cleaner?",
+    "If you drop soap on the floor, is the floor clean or the soap dirty?",
+    "If you try to fail and succeed, which have you done?",
+    "If you expect the unexpected, doesn’t the unexpected become expected?",
+    "If you’re waiting for the waiter, aren’t you the waiter?",
+    "If you dig a hole through the earth and jump in, are you falling down or up?",
+    "If you describe something as indescribable, haven’t you already described it?",
+    "If two mind readers read each other’s minds, whose mind are they reading?",
+    "If Cinderella’s shoe fit perfectly, why did it fall off?",
+    "If a word is misspelled in the dictionary, how would we ever know?",
+    "If tomatoes are fruit, is ketchup a smoothie?",
+    "If the universe is expanding, what is it expanding into?",
+    "If you eat yourself, do you become twice as big or disappear completely?",
+    "If you could have any superpower, but only while in the shower, what would it be?",
+    "If you could only speak in questions, how would you answer this?",
+    "If you could swap places with your reflection, would you?",
+    "If you could see smells, what color would soap be?",
+    "If you could taste music, what would jazz taste like?",
+    "If you could hear colors, what would pink sound like?"
+  ],
+  absurdIdea: [
+    "Invent a #adjective# #object# that #verb# #adverb#.",
+    "Imagine a world where #object#s are used as #object#s.",
+    "What if #object#s could #verb# #adverb#?",
+    "Suppose #object#s had feelings about #object#s.",
+    "A #adjective# #object# that solves #problem# by #verb#ing #adverb#.",
+    "A society where #object#s are the dominant species and humans are #object#s.",
+    "A #adjective# #object# that can only be used on #adjective# days.",
+    "A #object# that is afraid of #object#s.",
+    "A #adjective# #object# that can only #verb# when no one is watching.",
+    "A #object# that dreams of being a #object#.",
+    "A #adjective# #object# that grants wishes, but only for ducks.",
+    "A #object# that can only be found in dreams.",
+    "A #adjective# #object# that is allergic to water.",
+    "A #object# that can only be used upside down."
+  ],
+  absurdQuestion: [
+    "Why do we park on driveways and drive on parkways?",
+    "Why isn’t the number 11 pronounced onety-one?",
+    "Why is the word 'abbreviation' so long?",
+    "Why do noses run but feet smell?",
+    "Why do we cook bacon and bake cookies?",
+    "Why do we call them buildings if they're already built?",
+    "Why do we say 'slept like a baby' when babies wake up every two hours?",
+    "Why do we call it a 'restroom' when you’re rarely resting?",
+    "Why do we call it 'fast food' when it takes so long to get?",
+    "Why do we call it a 'drive-thru' if you have to stop?",
+    "Why do we call it a 'hot water heater' if it’s heating cold water?",
+    "Why do we call it a 'pair of pants' if it’s only one item?"
+  ],
+  absurdComparison: [
+    "#object#s are like #object#s, but only on #adjective# days.",
+    "Life is like a #object#, you never know when it will #verb#.",
+    "A #adjective# #object# is just a #object# in disguise.",
+    "#object#s and #object#s have more in common than you think.",
+    "A #object# is just a #object# with a different attitude.",
+    "#object#s are the socks of the #object# world.",
+    "A #adjective# #object# is the cousin of the #adjective# #object#."
+  ],
+  absurdScenario: [
+    "You wake up and realize you’ve turned into a #adjective# #object#.",
+    "You discover a secret society of #adjective# #object#s living in your bathroom.",
+    "You find a portal to a world where #object#s rule and humans are pets.",
+    "You are elected president of the #object#s, but only for a day.",
+    "You invent a language spoken only by #object#s.",
+    "You discover that #object#s have been watching you all along.",
+    "You are challenged to a dance-off by a #adjective# #object#."
+  ],
+  absurdLaw: [
+    "In the land of #object#s, it is illegal to #verb# on a #adjective# day.",
+    "By law, all #object#s must be #adjective# on Sundays.",
+    "It is forbidden to #verb# with a #object# after midnight.",
+    "Every #object# must be accompanied by a #adjective# #object#.",
+    "No #object# shall be left un#verb#ed in the presence of a #object#."
+  ],
+  absurdFact: [
+    "Did you know that #object#s can #verb# #adverb# when no one is looking?",
+    "It’s a little-known fact that #object#s secretly wish they were #object#s.",
+    "Scientists have proven that #object#s are happiest when they are #adjective#.",
+    "#object#s have been known to #verb# #adverb# during thunderstorms.",
+    "#object#s are the leading cause of #problem# in the world today."
+  ],
+  object: [
+    "toaster", "banana", "cloud", "bubble", "sock", "mirror", "umbrella", "spoon", "pillow", "door", "shoe", "cactus", "towel", "soap", "shampoo", "toothbrush", "duck", "clock", "window", "carpet", "chair", "fridge", "remote", "lamp", "book", "bathtub", "toilet", "plunger", "curtain", "showerhead", "faucet", "drain", "loofah", "razor", "comb", "brush", "bucket", "mat", "scale", "cup", "bottle", "jar", "basket", "hanger"
+  ],
+  adjective: [
+    "invisible", "noisy", "soggy", "bouncy", "melancholy", "glowing", "sneaky", "awkward", "fluffy", "sticky", "tiny", "giant", "confused", "curious", "sleepy", "electric", "soapy", "slippery", "frothy", "sparkly", "damp", "steamy", "bubbly", "creaky", "rusty", "ancient", "brand-new", "mysterious", "shiny", "wobbly"
+  ],
+  verb: [
+    "dance", "sing", "float", "vibrate", "glow", "sneeze", "whisper", "bounce", "spin", "giggle", "melt", "shrink", "expand", "hide", "appear", "vanish", "slide", "drip", "bubble", "soak", "scrub", "twirl", "hop", "tiptoe", "splash"
+  ],
+  adverb: [
+    "unexpectedly", "loudly", "silently", "awkwardly", "gracefully", "randomly", "slowly", "quickly", "mysteriously", "happily", "sadly", "enthusiastically", "reluctantly", "eagerly", "clumsily", "smoothly"
+  ],
+  problem: [
+    "forgetting why you walked into a room", "losing socks in the dryer", "running out of hot water", "dropping your phone in the bath", "soap slipping away", "toothpaste cap disappearing", "stepping on a wet mat", "finding a spider in the tub", "running out of shampoo", "getting soap in your eyes"
+  ]
+});
 
 export default function Hero3D() {
   const [loading, setLoading] = useState(true);
@@ -178,16 +225,15 @@ export default function Hero3D() {
   const handleThink = () => {
     // Play sound effect
     new Howl({ src: [modeSwitch], volume: 0.4 }).play();
-    // Pick a new phrase and animation
-    const newPhrase = grammar.flatten('origin');
-    const newAnim = getRandomItem(ANIMATIONS);
     setShowThought(false);
     setOverlayActive(true);
     setOverlayVisible(true);
     if (thoughtTimeout.current) clearTimeout(thoughtTimeout.current);
     if (overlayTimeout.current) clearTimeout(overlayTimeout.current);
-    // Wait for exit animation (if any), then show new
+    // Wait for overlay fade-in, then show new Tracery phrase
     setTimeout(() => {
+      const newPhrase = grammar.flatten('#origin#');
+      const newAnim = getRandomItem(ANIMATIONS);
       setThought(newPhrase);
       setAnim(newAnim);
       setShowThought(true);
@@ -201,7 +247,7 @@ export default function Hero3D() {
         setShowThought(false);
         setTimeout(() => setOverlayVisible(false), 600); // allow fade out
       }, 5000);
-    }, 200);
+    }, 400); // match overlay fade-in duration
   };
 
   // When the model loads, start a timer for the minimum splash duration
@@ -225,16 +271,43 @@ export default function Hero3D() {
       left: 0,
       width: '100vw',
       height: '100vh',
-      background: 'linear-gradient(145deg, #ffe0f7 60%, #e0f7fa 100%)',
+      background: 'linear-gradient(135deg, #ffe0f7 0%, #e0f7fa 60%, #e3e0ff 100%)',
       zIndex: 1000,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'column',
       transition: 'opacity 0.6s',
+      overflow: 'hidden',
     }}>
+      {/* Animated floating bubbles */}
+      {[...Array(8)].map((_, i) => (
+        <div
+          key={i}
+          style={{
+            position: 'absolute',
+            left: `${10 + Math.random() * 80}%`,
+            top: `${80 + Math.random() * 10}%`,
+            pointerEvents: 'none',
+            zIndex: 1,
+            animation: `bubbleFloatSplash ${2.5 + Math.random() * 2}s ${Math.random()}s linear infinite`,
+          }}
+        >
+          <svg width={32 + Math.random() * 32} height={32 + Math.random() * 32}>
+            <circle
+              cx="50%"
+              cy="50%"
+              r="50%"
+              fill="#fff"
+              opacity={0.18 + Math.random() * 0.25}
+              stroke="#aee7fa"
+              strokeWidth="2"
+            />
+          </svg>
+        </div>
+      ))}
       <div style={{ position: 'relative', marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', height: 110 }}>
-        {/* Animated soap bar */}
+        {/* Animated soap bar with shine */}
         <div style={{
           width: 240,
           height: 110,
@@ -253,8 +326,23 @@ export default function Hero3D() {
           position: 'relative',
           animation: 'soap-bounce 1.6s infinite cubic-bezier(.68,-0.55,.27,1.55)',
           userSelect: 'none',
+          overflow: 'hidden',
         }}>
-          <span style={{ textShadow: '0 2px 8px #fff, 0 1px 0 #e0f7fa', width: '100%', textAlign: 'center' }}>Shower Thoughts</span>
+          <span style={{ textShadow: '0 2px 8px #fff, 0 1px 0 #e0f7fa', width: '100%', textAlign: 'center', position: 'relative', zIndex: 2 }}>Shower Thoughts</span>
+          {/* Shine animation */}
+          <span style={{
+            position: 'absolute',
+            left: '-60%',
+            top: 0,
+            width: '60%',
+            height: '100%',
+            background: 'linear-gradient(120deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.1) 100%)',
+            filter: 'blur(2px)',
+            transform: 'skewX(-20deg)',
+            zIndex: 1,
+            animation: 'shineSoap 2.2s linear infinite',
+            pointerEvents: 'none',
+          }} />
         </div>
         {/* Bubbles floating up */}
         <Bubble size={32} left={-24} top={-30} opacity={0.5} />
@@ -262,7 +350,7 @@ export default function Hero3D() {
         <Bubble size={22} left={120} top={-28} opacity={0.6} />
         <Bubble size={14} left={160} top={-18} opacity={0.3} />
       </div>
-      <div style={{ fontFamily: 'Rubik Bubbles, cursive', color: '#D670AA', fontSize: '1.3rem', opacity: 0.7, letterSpacing: '0.04em' }}>
+      <div style={{ fontFamily: 'Rubik Bubbles, cursive', color: '#D670AA', fontSize: '1.3rem', opacity: 0.7, letterSpacing: '0.04em', zIndex: 2 }}>
         Loading your shower experience...
       </div>
       <style>{`
@@ -270,9 +358,18 @@ export default function Hero3D() {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-18px); }
         }
+        @keyframes shineSoap {
+          0% { left: -60%; }
+          100% { left: 120%; }
+        }
+        @keyframes bubbleFloatSplash {
+          0% { transform: translateY(0); opacity: 1; }
+          80% { opacity: 0.7; }
+          100% { transform: translateY(-120px); opacity: 0; }
+        }
       `}</style>
-  </div>
-);
+    </div>
+  );
 
   return (
     <div style={{ position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh', minHeight: '100dvh', minWidth: '100vw', overflow: 'hidden', zIndex: 0 }}>
@@ -415,6 +512,8 @@ export default function Hero3D() {
       }}>
         <button
           className="button think-soap-btn"
+          onClick={handleThink}
+          disabled={overlayActive || overlayVisible}
           style={{
             background: 'linear-gradient(145deg, #ffe0f7 60%, #e0f7fa 100%)',
             border: '2px solid #222',
@@ -426,18 +525,19 @@ export default function Hero3D() {
             fontWeight: 700,
             padding: '2.09rem 4.75rem',
             letterSpacing: '0.08em',
-            cursor: 'pointer',
+            cursor: overlayActive || overlayVisible ? 'not-allowed' : 'pointer',
             outline: 'none',
             position: 'relative',
             transition: 'transform 0.1s',
             textShadow: '0 2px 8px #fff, 0 1px 0 #e0f7fa',
             boxSizing: 'border-box',
             userSelect: 'none',
+            opacity: overlayActive || overlayVisible ? 0.6 : 1,
           }}
           onMouseDown={e => (e.currentTarget.style.transform = 'scale(0.96)')}
           onMouseUp={e => (e.currentTarget.style.transform = 'scale(1)')}
           onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
-          onClick={handleThink}
+          aria-label="Think"
         >
           Think
         </button>
@@ -445,6 +545,7 @@ export default function Hero3D() {
       {/* Fullscreen white overlay for thought display */}
       {overlayVisible && (
         <div
+          className={overlayActive ? 'overlay-active' : 'overlay-inactive'}
           style={{
             position: 'fixed',
             top: 0,
@@ -462,20 +563,23 @@ export default function Hero3D() {
           }}
         >
           {showThought && (
-            <div className={`thought-anim thought-anim-${anim}`} style={{
-              color: '#7b3f7b',
-              fontFamily: 'Rubik Bubbles, cursive',
-              fontSize: '3.5rem', // much bigger
-              fontWeight: 700,
-              padding: '3.2rem 4.5rem',
-              textAlign: 'center',
-              letterSpacing: '0.02em',
-              userSelect: 'none',
-              maxWidth: '90vw',
-              borderRadius: '2rem',
-              boxShadow: '0 4px 24px 0 rgba(200, 180, 255, 0.12)',
-              background: 'rgba(255,255,255,0.95)',
-            }}>
+            <div className={`thought-anim thought-anim-${anim}`}
+              style={{
+                color: '#7b3f7b',
+                fontFamily: 'Rubik Bubbles, cursive',
+                fontSize: '3.5rem',
+                fontWeight: 700,
+                padding: '3.2rem 4.5rem',
+                textAlign: 'center',
+                letterSpacing: '0.02em',
+                userSelect: 'none',
+                maxWidth: '90vw',
+                borderRadius: '2rem',
+                boxShadow: '0 4px 24px 0 rgba(200, 180, 255, 0.12)',
+                background: 'rgba(255,255,255,0.95)',
+                transition: 'all 0.5s cubic-bezier(.68,-0.55,.27,1.55)',
+              }}
+            >
               {thought}
             </div>
           )}
@@ -630,6 +734,8 @@ export default function Hero3D() {
             opacity: 0;
           }
         }
+        .overlay-active { opacity: 1; pointer-events: auto; }
+        .overlay-inactive { opacity: 0; pointer-events: none; }
       `}</style>
     </div>
   );

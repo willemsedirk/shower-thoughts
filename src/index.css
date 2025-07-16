@@ -10,7 +10,7 @@
     min-height: 100vh;
     min-width: 100vw;
     overflow: hidden;
-    font-family: 'Baloo 2', Arial, Helvetica, sans-serif;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     background: linear-gradient(135deg, #ffe0f7 0%, #e0f7fa 60%, #e3e0ff 100%);
     color: #6d4c6d;
   }
@@ -37,7 +37,7 @@
     border-radius: 2rem;
     box-shadow: 0 4px 24px 0 rgba(200, 180, 255, 0.12);
     color: #7b3f7b;
-    font-family: 'Baloo 2', Arial, Helvetica, sans-serif;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
   }
   .credits-modal-title {
     font-family: 'Rubik Bubbles', cursive;

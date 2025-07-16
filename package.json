@@ -24,6 +24,7 @@
     "react-scripts": "5.0.1",
     "tailwindcss": "^4.1.11",
     "three": "^0.178.0",
+    "tracery": "^1.0.3",
     "tracery-grammar": "^2.8.4",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"

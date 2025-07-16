@@ -1,0 +1,1 @@
+export type VisualMode = "dark" | "zen" | "chaos"; 

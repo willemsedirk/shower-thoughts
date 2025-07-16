@@ -1,13 +1,49 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@layer base {
+  html, body, #root {
+    @apply flex flex-col items-center justify-center min-h-screen w-full text-center antialiased;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+    font-family: 'Baloo 2', Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #ffe0f7 0%, #e0f7fa 60%, #e3e0ff 100%);
+    color: #6d4c6d;
+  }
+  h1, h2, h3, h4, h5, h6, .rubik-bubbles {
+    font-family: 'Rubik Bubbles', cursive;
+    color: #D670AA;
+    letter-spacing: 0.04em;
+  }
+  .modal, .overlay, .button, button, .credits-modal {
+    transition: all 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+  }
+  .button, button {
+    background: linear-gradient(145deg, #ffe0f7 60%, #e0f7fa 100%);
+    color: #D670AA;
+    border-radius: 1.2rem;
+    border: 1.5px solid #D670AA;
+    font-family: 'Rubik Bubbles', cursive;
+    font-weight: 600;
+    box-shadow: 0 2px 8px 0 rgba(200, 180, 255, 0.10);
+    transition: background 0.2s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s cubic-bezier(.68,-0.55,.27,1.55), color 0.2s cubic-bezier(.68,-0.55,.27,1.55);
+  }
+  .credits-modal, .modal {
+    background: #fff0fa;
+    border-radius: 2rem;
+    box-shadow: 0 4px 24px 0 rgba(200, 180, 255, 0.12);
+    color: #7b3f7b;
+    font-family: 'Baloo 2', Arial, Helvetica, sans-serif;
+  }
+  .credits-modal-title {
+    font-family: 'Rubik Bubbles', cursive;
+    color: #D670AA;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+} 

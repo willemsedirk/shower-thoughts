@@ -187,6 +187,7 @@ export default function Hero3D() {
   const thoughtTimeout = useRef<NodeJS.Timeout | null>(null);
   const overlayTimeout = useRef<NodeJS.Timeout | null>(null);
   const [showCredits, setShowCredits] = useState(false);
+  const [showSocials, setShowSocials] = useState(false);
   const [musicMuted, setMusicMuted] = useState(false);
   const lofiHowlRef = useRef<any>(null);
   const lofiPlayingRef = useRef(false);
@@ -624,6 +625,13 @@ export default function Hero3D() {
         >
           Credits
         </button>
+        <button
+          className="button"
+          onClick={() => setShowSocials(true)}
+          style={{ fontSize: '1.1rem', padding: '0.6rem 1.4rem' }}
+        >
+          Socials
+        </button>
       </div>
       {showCredits && (
         <div className="modal credits-modal" style={{
@@ -669,6 +677,53 @@ export default function Hero3D() {
                 fontSize: '1.1rem',
                 padding: '0.6rem 1.4rem',
               }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+      {showSocials && (
+        <div className="modal credits-modal" style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'rgba(255,255,255,0.96)',
+          zIndex: 4000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+          <div style={{
+            padding: '2.5rem 3.5rem',
+            fontFamily: 'Inter, Arial, Helvetica, sans-serif',
+            color: '#7b3f7b',
+            fontSize: '1.5rem',
+            textAlign: 'center',
+            maxWidth: '90vw',
+            maxHeight: '80vh',
+            overflowY: 'auto',
+            position: 'relative',
+            background: 'none',
+            boxShadow: 'none',
+          }}>
+            <div className="credits-modal-title">Socials</div>
+            <div style={{ marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '1.2rem', alignItems: 'center' }}>
+              <a href="https://dribbble.com/drkwillemse" target="_blank" rel="noopener noreferrer" style={{ color: '#EA4C89', fontWeight: 700, fontSize: '1.3rem', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EA4C89" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2.05 13a10 10 0 0 0 15.9 5.32M22 12a10 10 0 0 0-9.95-10M12 2a10 10 0 0 0-9.95 10M12 2a10 10 0 0 1 9.95 10M12 2a10 10 0 0 1 9.95 10M12 2a10 10 0 0 1 9.95 10" /></svg>
+                Dribbble
+              </a>
+              <a href="https://github.com/willemsedirk" target="_blank" rel="noopener noreferrer" style={{ color: '#333', fontWeight: 700, fontSize: '1.3rem', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85.004 1.71.12 2.51.35 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.33-.01 2.4-.01 2.73 0 .27.16.58.67.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10z" /></svg>
+                GitHub
+              </a>
+            </div>
+            <button
+              className="button"
+              onClick={() => setShowSocials(false)}
+              style={{ marginTop: '1.2rem', fontSize: '1.1rem', padding: '0.6rem 1.4rem' }}
             >
               Close
             </button>
